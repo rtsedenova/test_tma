@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "thhfhf",
+    "imageUrl": "/uploads/1751308467274_file_0.jpg",
+    "fullImageUrl": "http://localhost:3000/uploads/1751308467274_file_0.jpg",
+    "createdAt": "2025-06-30T18:34:27.836Z"
+  },
+  {
+    "id": 2,
+    "title": "dfkdfjdhbd",
+    "imageUrl": "/uploads/1751308903749_file_1.jpg",
+    "fullImageUrl": "http://localhost:3000/uploads/1751308903749_file_1.jpg",
+    "createdAt": "2025-06-30T18:41:44.376Z"
+  },
+  {
+    "id": 3,
+    "title": "reeeeeeeeeeeeeeeeee",
+    "imageUrl": "/uploads/1751310508925_file_2.jpg",
+    "fullImageUrl": "http://localhost:3000/uploads/1751310508925_file_2.jpg",
+    "createdAt": "2025-06-30T19:08:29.628Z"
+  },
+  {
+    "id": 4,
+    "title": "tjjjjjjj",
+    "imageUrl": "/uploads/1751310920336_file_3.jpg",
+    "fullImageUrl": "http://localhost:3000/uploads/1751310920336_file_3.jpg",
+    "createdAt": "2025-06-30T19:15:20.983Z"
+  },
+  {
+    "id": 5,
+    "title": "hhhhhhhhhhh",
+    "imageUrl": "/uploads/1751311244400_file_4.jpg",
+    "fullImageUrl": "http://localhost:3000/uploads/1751311244400_file_4.jpg",
+    "createdAt": "2025-06-30T19:20:44.887Z"
+  }
+]
