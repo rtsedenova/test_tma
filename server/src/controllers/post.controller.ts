@@ -1,5 +1,6 @@
-import { RequestHandler } from 'express';
+import { RequestHandler, Request, Response } from 'express';
 import { addPost, getAllPosts } from '../services/post.service';
+import * as postService from '../services/post.service';
 
 const handleServerError = (res: Parameters<RequestHandler>[1], message: string, error?: unknown) => {
   console.error(message, error);
@@ -43,5 +44,15 @@ export const getPostsCount: RequestHandler = (_req, res) => {
     res.json({ count: posts.length });
   } catch (error) {
     handleServerError(res, 'Failed to count posts.', error);
+  }
+};
+
+export const markNewsAsRead = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    await postService.markNewsAsRead(id);
+    res.status(200).json({ success: true });
+  } catch (error: any) {
+    res.status(500).json({ success: false, error: error.message });
   }
 };

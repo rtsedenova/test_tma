@@ -20,3 +20,8 @@ export const addPost = (post: { title: string; imageUrl: string }) => {
   fs.writeFileSync(postsPath, JSON.stringify(posts, null, 2));
   return newPost;
 };
+
+export async function markNewsAsRead(id: string): Promise<void> {
+  // Simple processing: log the ID, or you could update a DB/file if needed
+  console.log(`News with ID ${id} marked as read.`);
+}

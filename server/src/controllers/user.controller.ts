@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import * as userService from '../services/user.service';
 import { getUsers, addUserIfNotExists } from '../services/user.service';
 
 export const getAllUsers = (_req: Request, res: Response) => {
@@ -25,5 +26,22 @@ export const connectUser = (req: Request, res: Response) => {
   } catch (error) {
     res.status(500).json({ error: 'Ошибка при добавлении пользователя' });
     return;
+  }
+};
+
+export const addViewedPost = async (req: Request, res: Response) => {
+  console.log('addViewedPost controller called');
+  const { userId } = req.params;
+  const { postId } = req.body;
+  console.log('Params:', { userId });
+  console.log('Body:', { postId });
+  try {
+    console.log('Calling userService.addViewedPost...');
+    await userService.addViewedPost(userId, postId);
+    console.log('userService.addViewedPost finished');
+    res.status(200).json({ success: true });
+  } catch (error: any) {
+    console.error('Error in addViewedPost:', error);
+    res.status(500).json({ success: false, error: error.message });
   }
 };
