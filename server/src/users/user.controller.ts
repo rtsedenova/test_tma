@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import * as userService from '../users/user.service';
-import { getUsers, addUserIfNotExists } from '../users/user.service';
+import * as userService from './user.service';
+import { getUsers, addUserIfNotExists } from './user.service';
 
 export const getAllUsers = (_req: Request, res: Response) => {
   try {
