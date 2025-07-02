@@ -5,7 +5,7 @@ export async function handleTitleStep(ctx: Context) {
   const state = getState(ctx.chat!.id);
   if (!state || state.step !== 'awaiting_title') return;
   const text = (ctx.message as any).text;
-  setState(ctx.chat!.id, { step: 'awaiting_photo', title: text });
+  setState(ctx.chat!.id, { step: 'awaiting_description', title: text });
   console.log(`Title received: ${text}`);
-  await ctx.reply('Now send the photo');
+  await ctx.reply('Now send the description for the news');
 } 

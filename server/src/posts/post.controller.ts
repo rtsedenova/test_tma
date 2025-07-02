@@ -1,6 +1,6 @@
 import { RequestHandler, Request, Response } from 'express';
-import { addPost, getAllPosts } from '../services/post.service';
-import * as postService from '../services/post.service';
+import { addPost, getAllPosts } from '../posts/post.service';
+import * as postService from '../posts/post.service';
 
 const handleServerError = (res: Parameters<RequestHandler>[1], message: string, error?: unknown) => {
   console.error(message, error);
@@ -10,15 +10,15 @@ const handleServerError = (res: Parameters<RequestHandler>[1], message: string, 
 // -- Create
 
 export const createPost: RequestHandler = (req, res) => {
-  const { title, imageUrl } = req.body;
+  const { title, description, imageUrl } = req.body;
 
-  if (!title || !imageUrl) {
-    res.status(400).json({ error: 'Both title and imageUrl are required.' });
+  if (!title || !description || !imageUrl) {
+    res.status(400).json({ error: 'Title, description, and imageUrl are required.' });
     return;
   }
 
   try {
-    const newPost = addPost({ title, imageUrl });
+    const newPost = addPost({ title, description, imageUrl });
     res.status(201).json(newPost);
   } catch (error) {
     handleServerError(res, 'Failed to create post.', error);

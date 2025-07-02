@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import * as userService from '../services/user.service';
-import { getUsers, addUserIfNotExists } from '../services/user.service';
+import * as userService from '../users/user.service';
+import { getUsers, addUserIfNotExists } from '../users/user.service';
 
 export const getAllUsers = (_req: Request, res: Response) => {
   try {
@@ -8,7 +8,7 @@ export const getAllUsers = (_req: Request, res: Response) => {
     res.json(users);
     return;
   } catch (error) {
-    res.status(500).json({ error: 'Ошибка при чтении пользователей' });
+    res.status(500).json({ error: 'Error reading user' });
     return;
   }
 };
@@ -16,7 +16,7 @@ export const getAllUsers = (_req: Request, res: Response) => {
 export const connectUser = (req: Request, res: Response) => {
   const { telegramId, ...rest } = req.body;
   if (!telegramId) {
-    res.status(400).json({ error: 'Нужен telegramId' });
+    res.status(400).json({ error: 'Need telegramId' });
     return;
   }
   try {
@@ -24,7 +24,7 @@ export const connectUser = (req: Request, res: Response) => {
     res.json({ success: true, added });
     return;
   } catch (error) {
-    res.status(500).json({ error: 'Ошибка при добавлении пользователя' });
+    res.status(500).json({ error: 'Error adding user' });
     return;
   }
 };
@@ -43,5 +43,19 @@ export const addViewedPost = async (req: Request, res: Response) => {
   } catch (error: any) {
     console.error('Error in addViewedPost:', error);
     res.status(500).json({ success: false, error: error.message });
+  }
+};
+
+export const getNextUnviewedPost = async (req: Request, res: Response) => {
+  const { userId } = req.params;
+  try {
+    const post = userService.getNextUnviewedPost(userId);
+    if (post) {
+      res.status(200).json({ post });
+    } else {
+      res.status(200).json({ post: null });
+    }
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
   }
 };

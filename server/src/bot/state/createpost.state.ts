@@ -1,4 +1,4 @@
-type StepState = { step: 'awaiting_title' | 'awaiting_photo'; title?: string };
+type StepState = { step: 'awaiting_title' | 'awaiting_description' | 'awaiting_photo'; title?: string; description?: string };
 const state: Record<number, StepState> = {};
 
 export function setState(chatId: number, newState: StepState) {

@@ -9,5 +9,5 @@ export async function handleCreatePostCommand(ctx: Context) {
     return;
   }
   setState(ctx.chat!.id, { step: 'awaiting_title' });
-  await ctx.reply('Send the title first, then the photo');
+  await ctx.reply('Send the title first, then description and then the photo');
 } 

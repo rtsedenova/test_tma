@@ -4,8 +4,8 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import path from 'path';
 
-import postRouter from './routes/posts.route';
-import userRouter from './routes/users.route';
+import postRouter from './posts/post.route';
+import userRouter from './users/user.route';
 
 export const startServer = () => {
   const app = express();

@@ -2,10 +2,8 @@ import { Context } from 'telegraf';
 import path from 'path';
 import { getState, clearState } from '../state/createpost.state';
 import { downloadTelegramFile } from '../utils/telegram.utils';
-import { readJSON, writeJSON } from '../utils/file.utils';
-import { createPost } from '../utils/post.utils';
+import { addPost } from '../../posts/post.service';
 
-const postsPath = path.join(__dirname, '../../data/posts.json');
 const uploadsDir = path.join(__dirname, '../../../public/uploads');
 
 export async function handlePhotoStep(ctx: Context) {
@@ -27,12 +25,17 @@ export async function handlePhotoStep(ctx: Context) {
   }
 
   const fileName = await downloadTelegramFile(ctx, file.file_path, uploadsDir);
-  const posts = readJSON<any[]>(postsPath);
-  const newPost = createPost(posts, state.title!, fileName);
-  posts.push(newPost);
-  writeJSON(postsPath, posts);
+  const baseUrl = process.env.PUBLIC_URL || 'http://localhost:3000';
+  const publicPath = `/uploads/${fileName}`;
+  const fullUrl = `${baseUrl}${publicPath}`;
+  const newPost = addPost({
+    title: state.title!,
+    description: state.description || '',
+    imageUrl: publicPath,
+    fullImageUrl: fullUrl,
+  });
 
   console.log(`Post created: ${JSON.stringify(newPost)}`);
-  await ctx.reply(`Post created!\nTitle: ${newPost.title}\nImage: ${newPost.fullImageUrl}`);
+  await ctx.reply(`Post created!\nTitle: ${newPost.title}\nDescription: ${newPost.description}\nImage: ${newPost.fullImageUrl}`);
   clearState(ctx.chat!.id);
 } 
