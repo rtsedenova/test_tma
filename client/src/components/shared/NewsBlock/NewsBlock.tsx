@@ -18,11 +18,8 @@ type Props = PropsWithChildren<{
 }>;
 
 export const NewsBlock: FC<Props> = ({
-  status,
   newsList = [],
   children,
-  onSeeMore,
-  hasMoreUnread,
   userId,
   viewedPosts,
   setViewedPosts,
@@ -77,8 +74,6 @@ export const NewsBlock: FC<Props> = ({
     content = (
       <NewsPreview
         news={nextNews}
-        hasMoreUnread={hasMoreUnread}
-        onSeeMore={onSeeMore}
         userId={userId}
         onViewed={handleViewed}
       />
@@ -91,8 +86,6 @@ export const NewsBlock: FC<Props> = ({
     content = (
       <NewsPreview
         news={firstUnread}
-        hasMoreUnread={hasMoreUnread}
-        onSeeMore={onSeeMore}
         userId={userId}
         onViewed={handleViewed}
       />
