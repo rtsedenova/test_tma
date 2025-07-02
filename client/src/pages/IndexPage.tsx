@@ -12,7 +12,7 @@ import { getLatestNews } from '@/utils/getLatestNews';
 import { useInitData } from '@/hooks/useInitData';
 import { API_USERS } from '@/config/api';
 
-const [b, e] = bem('index_page');
+const [, e] = bem('index_page');
 
 export const IndexPage: FC<{ posts?: News[] }> = ({ posts = [] }) => {
   const latestNews = getLatestNews(posts);

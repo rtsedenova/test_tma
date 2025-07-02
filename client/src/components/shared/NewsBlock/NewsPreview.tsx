@@ -8,13 +8,11 @@ const [b, e] = bem('news-preview');
 
 type Props = {
   news: News;
-  hasMoreUnread?: boolean;
-  onSeeMore?: () => void;
   userId: string;
   onViewed?: (postId: string) => void;
 };
 
-export const NewsPreview: FC<Props> = ({ news, hasMoreUnread, onSeeMore, userId, onViewed }) => (
+export const NewsPreview: FC<Props> = ({ news, userId, onViewed }) => (
   <div className={b()}>
   <div className={e('image-wrapper')}>
     <img src={news.image} alt={news.title} className={e('image')} />

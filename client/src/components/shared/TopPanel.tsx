@@ -3,7 +3,7 @@ import { Settings, User } from 'lucide-react';
 import { Logo } from '@/components/shared/Logo';
 import { bem } from '@/css/bem';
 
-const [b, e] = bem('top-panel');
+const [, e] = bem('top-panel');
 
 export const TopPanel: FC = () => {
   return (
