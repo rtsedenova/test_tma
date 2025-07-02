@@ -3,9 +3,14 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import path from 'path';
+import { Telegraf } from 'telegraf';
+import dotenv from 'dotenv';
+dotenv.config();
 
-import postRouter from './posts/post.route';
+import postRouter from './posts/posts.route';
 import userRouter from './users/user.route';
+
+const bot = new Telegraf(process.env.BOT_TOKEN!);
 
 export const startServer = () => {
   const app = express();
@@ -20,6 +25,12 @@ export const startServer = () => {
 
   app.use('/api/posts', postRouter);
   app.use('/api/users', userRouter);
+
+  app.use(bot.webhookCallback('/bot'));
+
+  app.get('/', (_req, res) => {
+    res.send('Bot and server are running');
+  });
   
   app.use((_req, res) => {
     res.status(404).json({ error: 'Not found' });

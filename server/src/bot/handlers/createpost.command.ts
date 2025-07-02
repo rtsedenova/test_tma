@@ -1,9 +1,13 @@
 import { Context } from 'telegraf';
 import { setState } from '../state/createpost.state';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const allowedUsernames = (process.env.ALLOWED_USERS || '')
+const allowedUsernames = ( process.env.ALLOWED_USERS || "")
   .split(',')
   .map(username => username.trim());
+
+  console.log('Allowed usernames:', allowedUsernames);
 
 export async function handleCreatePostCommand(ctx: Context) {
   console.log('Received /createpost command');
