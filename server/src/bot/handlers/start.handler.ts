@@ -2,7 +2,7 @@ import { Telegraf } from 'telegraf';
 
 export function attachHandlers(bot: Telegraf) {
   bot.start((ctx) => {
-    const webAppUrl = 'https://n61o13-79-127-249-67.ru.tuna.am';
+    const webAppUrl = 'https://boisterous-sherbet-73b72d.netlify.app/';
 
     ctx.reply(
       'Hi! Click the button below to open the mini-app:',
