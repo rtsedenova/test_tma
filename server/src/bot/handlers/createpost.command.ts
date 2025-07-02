@@ -1,13 +1,17 @@
 import { Context } from 'telegraf';
 import { setState } from '../state/createpost.state';
 
+const allowedUsernames = (process.env.ALLOWED_USERS || '')
+  .split(',')
+  .map(username => username.trim());
+
 export async function handleCreatePostCommand(ctx: Context) {
   console.log('Received /createpost command');
 
-  const allowedUsernames = ['renatayeoo', 'PTRLS'];
+  const username = ctx.from?.username || '';
 
-  if (!allowedUsernames.includes(ctx.from?.username || '')) {
-    console.log('Unauthorized user tried to use /createpost:', ctx.from?.username);
+  if (!allowedUsernames.includes(username)) {
+    console.log('Unauthorized user tried to use /createpost:', username);
     await ctx.reply('Unknown command');
     return;
   }
