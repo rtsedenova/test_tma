@@ -1,0 +1,38 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  box-shadow: none;
+  border: none;
+  width: fit-content;
+  max-width: 100vw;
+
+  &__image {
+    width: 2.7rem;
+    height: 2.7rem;
+    min-width: 2rem;
+    min-height: 2rem;
+    object-fit: contain;
+    @include respond-to(sm) {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+
+  &__text {
+    color: $color-primary-d;
+    font-family: 'Montserrat', 'Open Sans', Arial, sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: left;
+    line-height: 1.1;
+    font-size: 1.25rem;
+    letter-spacing: 0.02em;
+    @include respond-to(sm) {
+      font-size: 0.9rem;
+    }
+  }
+}

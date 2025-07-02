@@ -1,0 +1,19 @@
+@import './base/global.scss';
+@import './base/fonts.scss';
+@import './base/variables.scss';
+@import './base/mixins.scss';
+
+@import './components/DisplayData.scss';
+@import './components/Link.scss';
+@import './components/Logo.scss';
+@import './components/RGB.scss';
+@import './components/TopPanel.scss';
+@import './components/NewsBlock/NewsBlock.scss';
+@import './components/NewsBlock/NewsCheckBtn.scss';
+@import './components/NewsBlock/NewsPreview.scss';
+@import './components/NewsBlock/NewsCard.scss';
+@import './components/NewsBlock/NewsCardList.scss';
+@import './components/NewsBlock/NewsMessage.scss';
+@import './components/NewsNavbar.scss';
+
+@import './pages/IndexPage.scss';

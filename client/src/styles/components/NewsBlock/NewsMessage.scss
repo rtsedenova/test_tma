@@ -1,0 +1,122 @@
+.news-message {
+    &__screen {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+        background: #f3f2f1;
+        border-radius: 1.2rem;
+        margin: 2rem auto;
+        padding: 2.5rem 1.5rem;
+    
+        width: 100% !important;
+        box-sizing: border-box;
+        transition: box-shadow 0.2s;
+    }
+
+    // 🔴 Error
+    &__screen.error {
+    background: linear-gradient(120deg, #fff 80%, #ffeaea 100%);
+    border: 1px solid #ffeaea;
+
+    // .news-message__icon {
+    //     color: #e83a54;
+    // }
+    }
+
+    // 🟡 No news
+    &__screen.no-news {
+    background: linear-gradient(120deg, #fff 80%, #f5f5f7 100%);
+    border: 1px solid #f5f5f7;
+
+    // .news-message__icon {
+    //     color: #f0ad4e;
+    // }
+    }
+
+    // ✅ All viewed
+    &__screen.all-viewed {
+    background: linear-gradient(120deg, #fff 80%, #eafff2 100%);
+    border: 1px solid #eafff2;
+
+    // .news-message__icon {
+    //     color: #52bf17;
+    // }
+    }
+
+    // 🔵 Offer more
+    &__screen.offer-more {
+    background: linear-gradient(120deg, #fff 80%, #eaf2ff 100%);
+    border: 1px solid #eaf2ff;
+
+    // .news-message__icon {
+    //     color: #3b81e1;
+    // }
+    }
+
+    &__icon {
+    margin-bottom: 12px;
+    }
+
+    &__title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.5rem;
+    font-family: 'SF Pro Display', 'Montserrat', Arial, sans-serif;
+    letter-spacing: -0.01em;
+    text-align: center;
+    }
+
+    &__desc {
+    font-size: 1.05rem;
+    color: #888;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    font-family: 'SF Pro Text', 'Montserrat', Arial, sans-serif;
+    line-height: 1.6;
+    }
+
+    &__view-more-link {
+        position: relative;
+        font-family: 'Montserrat', 'Open Sans', Arial, sans-serif;
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        cursor: pointer;
+        transition: color 0.2s;
+        color: #3b81e1;
+        border: none;
+        background: transparent;
+    
+        svg {
+        transition: transform 0.2s ease;
+        width: 1rem;
+        height: auto;
+        }
+    
+        &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        height: 1.5px;
+        width: 0%;
+        background-color: #3b81e1;
+        transition: width 0.3s ease;
+        }
+    
+        &:hover::after {
+        width: 100%;
+        }
+    
+        &:hover svg {
+        transform: translateX(3px);
+        }
+    }
+}

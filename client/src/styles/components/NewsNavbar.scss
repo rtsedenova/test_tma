@@ -1,0 +1,83 @@
+.news-navbar {
+    position: relative;
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+
+    &__fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 24px;
+    pointer-events: none;
+    z-index: 2;
+
+    &--left {
+        left: 0;
+        background: linear-gradient(to right, #fff 80%, rgba(255, 255, 255, 0));
+    }
+
+    &--right {
+        right: 0;
+        background: linear-gradient(to left, #fff 80%, rgba(255, 255, 255, 0));
+    }
+    }
+
+    &__scroll {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+
+    scrollbar-width: thin;
+    scrollbar-color: #4b96ff transparent;
+
+    &::-webkit-scrollbar {
+        height: 2px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #4b96ff;
+        border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+    }
+
+    &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 1.1rem;
+    font-size: 0.95rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    border-radius: 1rem;
+    white-space: nowrap;
+    color: #555;
+    // background: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s, color 0.2s;
+
+    &--active {
+        color: #3b81e1;
+        background: rgba(75, 150, 255, 0.1);
+    }
+    }
+
+    &__item:nth-child(1):hover { color: #3b81e1; }  // Trending 
+    &__item:nth-child(2):hover { color: #1db16f; }  // Weather 
+    &__item:nth-child(3):hover { color: #3d55dc; }  // Politics 
+    &__item:nth-child(4):hover { color: #9737ba; }  // Finance 
+    &__item:nth-child(5):hover { color: #c3265f; }  // Celebrities 
+}
