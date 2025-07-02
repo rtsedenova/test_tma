@@ -2,7 +2,7 @@ import { Context } from 'telegraf';
 import path from 'path';
 import { getState, clearState } from '../state/createpost.state';
 import { downloadTelegramFile } from '../utils/telegram.utils';
-import { addPost } from '../../posts/post.service';
+import { addPost } from '../../posts/posts.service';
 
 const uploadsDir = path.join(__dirname, '../../../public/uploads');
 
